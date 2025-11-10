@@ -1,0 +1,209 @@
+:root {
+  /* 基本色（戦国風・和紙トーンに調整） */
+  --bg-color: #ffffff;          /* 和紙のような背景 */
+  --text-color: #008000;        /* 墨っぽい文字色 */
+  --main-color: #008000;        /* 見出し・線（焦げ茶） */
+  --accent-color: #7a6f56;      /* アクセント（金茶系） */
+  --section-bg: rgba(255,255,255,0.4); /* セクション背景 */
+  --char-bg: #faf6ef;           /* キャラボタン背景 */
+  --char-border: #7a6f56;       /* キャラ枠線 */
+  --char-detail-bg: #fffdf8;    /* 詳細背景（ほんのり和紙） */
+}
+
+/* ------------------------
+   全体リセット
+------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------
+   ボディ・基本フォント
+------------------------ */
+body {
+  font-family: "Yu Mincho", "Hiragino Mincho Pro", serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.9;
+  padding: 20px;
+}
+
+/* ヘッダー */
+header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--main-color);
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2em;
+  color: var(--main-color);
+}
+
+/* ナビゲーションリンク */
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* セクション */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: var(--section-bg);
+  border: 1px solid var(--main-color);
+  border-radius: 6px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+section h2 {
+  font-size: 1.5em;
+  color: var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+}
+
+/* キャラクター */
+.character {
+  margin-bottom: 15px;
+}
+
+.char-name {
+  width: 100%;
+  text-align: left;
+  background-color: var(--char-bg);
+  border: 1px solid var(--char-border);
+  border-radius: 4px;
+  font-size: 1.05em;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: var(--text-color);
+}
+
+.char-name:hover {
+  background-color: #f2ede3; /* hoverで少し濃いめに */
+}
+
+.char-detail {
+  display: none;
+  margin-top: 8px;
+  padding: 10px 15px;
+  border-left: 3px solid var(--char-border);
+  background-color: var(--char-detail-bg);
+  border-radius: 4px;
+  line-height: 1.8;
+}
+
+.char-detail.open {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* ------------------------
+   用語・世界設定
+------------------------ */
+.term,
+.world {
+  margin-bottom: 15px;
+}
+
+.term-name,
+.world-name {
+  width: 100%;
+  text-align: left;
+  background-color: var(--char-bg);
+  border: 1px solid var(--main-color);
+  border-radius: 4px;
+  font-size: 1.05em;
+  padding: 10px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: background-color 0.2s;
+}
+
+.term-name:hover,
+.world-name:hover {
+  background-color: #f2ede3;
+}
+
+/* 詳細部分 */
+.char-detail,
+.term-detail,
+.world-detail {
+  display: none;
+  margin: 5px 0 10px 15px;
+}
+
+.char-detail.open,
+.term-detail.open,
+.world-detail.open {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------
+   一括開閉ボタン
+------------------------ */
+.bulk-buttons {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.bulk-buttons button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  background: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: inherit;
+}
+
+.bulk-buttons button:hover {
+  background: var(--accent-color);
+}
+
+/* ------------------------
+   フッター
+------------------------ */
+footer {
+  border-top: 1px solid var(--main-color);
+  color: var(--text-color);
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9em;
+}
+
+/* リンク全般 */
+a {
+  color: var(--main-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
